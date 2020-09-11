@@ -1,0 +1,10 @@
+//  npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-loader
+
+{
+    "presets": [
+        //trabajar con ecs 5 y 6
+        "@babel/preset-env",
+        // trabajer con jsx y react
+        "@babel/preset-react"
+    ],
+}
