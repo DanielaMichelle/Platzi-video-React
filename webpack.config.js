@@ -1,6 +1,8 @@
 // SASS => npm install --save-dev mini-css-extract-plugin css-loader node-sass sass-loader
 // WEBPACK =>  npm install webpack webpack-cli html-webpack-plugin html-loader  --save-dev
 // DEV-SERVER =>  npm install --save-dev webpack-dev-server
+// FILE-LOADER =>  npm install file-loader --save-dev
+// Fake Api => npm install -g json-server 
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -37,6 +39,15 @@ module.exports = {
           { loader: MiniCssExtractPlugin.loader },
           'css-loader',
           'sass-loader',
+        ],
+      },
+      {
+        test: /\.(png|gif|jpg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { name: 'assets/[hash].[ext]' },
+          }
         ],
       },
     ],
