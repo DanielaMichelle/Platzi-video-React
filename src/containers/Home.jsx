@@ -4,6 +4,7 @@ import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
+import Header from '../components/Header'
 import useInitialState from '../hooks/useInitialState';
 import '../assets/styles/Home.scss';
 
@@ -13,12 +14,17 @@ const Home = ({ mylist,trends,originals}) => {
   // const initialState = useInitialState(API); (redux)
   return (
     <React.Fragment>
-      <Search />
+      <Header/>
+      <Search isHome />
       {mylist.length > 0 &&
         <Categories title="Mi Lista">
           <Carousel>
             {mylist.map(item =>
-              <CarouselItem key={item.id} {...item} />
+              <CarouselItem 
+                key={item.id} 
+                {...item} 
+                isList 
+              />
             )}
           </Carousel>
         </Categories>
